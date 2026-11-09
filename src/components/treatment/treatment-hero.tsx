@@ -20,52 +20,73 @@ function ClinicInfoStrip() {
     <Container className="relative z-10 -mt-[72px] lg:-mt-[78px]">
       <div className="rounded-[28px] bg-white/95 p-3 shadow-float ring-1 ring-white/80 backdrop-blur lg:p-0">
         <div className="grid grid-cols-1 divide-y divide-[#d9e0e6] md:grid-cols-3 md:divide-x md:divide-y-0">
-          {/* Item 1: Clinic Location */}
-          <div className="flex items-center gap-4 px-4 py-4 lg:px-8 lg:py-6">
+          {/* Item 1: Clinic Address */}
+          <div className="flex items-center gap-4 px-4 py-4 lg:px-7 lg:py-5">
             <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
               <MapPin className="h-6 w-6" strokeWidth={1.8} />
             </span>
             <div>
-              <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">Clinic Location</div>
-              <div className="mt-0.5 font-display text-[15.5px] sm:text-[16px] font-bold leading-snug text-navy">
-                Ground Floor, Swaraj Complex
+              <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">Clinic Address</div>
+              <div className="mt-0.5 font-display text-[14px] sm:text-[14.5px] font-bold leading-snug text-navy">
+                Shop No. 2/3/4, Ground Floor, Swaraj Complex
               </div>
-              <div className="text-[12.5px] text-ink/75 leading-tight">
-                Opp. Datta Mandir, Wadgaon Sheri, Pune
+              <div className="text-[12px] text-ink/75 leading-tight mt-0.5">
+                Opp. Datta Mandir, Wadgaon Sheri, Pune 411014
               </div>
             </div>
           </div>
 
-          {/* Item 2: Phone Number */}
-          <div className="flex items-center gap-4 px-4 py-4 lg:px-8 lg:py-6">
+          {/* Item 2: Phone Numbers */}
+          <div className="flex items-center gap-4 px-4 py-4 lg:px-7 lg:py-5">
             <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
               <Phone className="h-6 w-6" strokeWidth={1.8} />
             </span>
             <div>
-              <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">Phone Number</div>
-              <div className="mt-0.5 font-display text-[15.5px] sm:text-[16px] font-bold leading-snug text-navy">
-                <a href={`tel:${site.phoneHref}`} className="transition hover:text-teal">
-                  {site.phone}
-                </a>
-              </div>
-              <div className="text-[12.5px] text-ink/75 leading-tight">
-                Doctor Appointment &amp; Inquiries
+              <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">Direct Contact</div>
+              <div className="mt-0.5 space-y-1">
+                <div>
+                  <a
+                    href={`tel:${site.phoneHref}`}
+                    className="font-display text-[14.5px] sm:text-[15px] font-bold text-navy transition hover:text-teal"
+                  >
+                    {site.phone}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={`tel:${site.phoneSecondaryHref}`}
+                    className="font-display text-[14.5px] sm:text-[15px] font-bold text-navy transition hover:text-teal"
+                  >
+                    {site.phoneSecondary}
+                  </a>
+                  <span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                    WhatsApp
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Item 3: Clinic Timings */}
-          <div className="flex items-center gap-4 px-4 py-4 lg:px-8 lg:py-6">
+          <div className="flex items-center gap-4 px-4 py-4 lg:px-7 lg:py-5">
             <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
               <Clock className="h-6 w-6" strokeWidth={1.8} />
             </span>
             <div>
               <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">Clinic Timings</div>
-              <div className="mt-0.5 font-display text-[14.5px] sm:text-[15px] font-bold leading-snug text-navy">
-                Mon – Sat: 10:30 AM – 2:30 PM &amp; 5:30 – 9:30 PM
-              </div>
-              <div className="text-[12.5px] text-ink/75 leading-tight">
-                SUN: 10:30 AM – 1:30 PM
+              <div className="mt-1 space-y-0.5 text-[12.5px] sm:text-[13px]">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-20 shrink-0 font-bold text-navy">Mon – Sat:</span>
+                  <span className="font-semibold text-navy">10:30 AM – 2:30 PM</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <span className="w-20 shrink-0" aria-hidden="true" />
+                  <span className="font-semibold text-navy">5:30 PM – 9:30 PM</span>
+                </div>
+                <div className="flex items-center gap-2.5 pt-0.5">
+                  <span className="w-20 shrink-0 font-bold text-navy">SUN:</span>
+                  <span className="font-semibold text-navy">10:30 AM – 1:30 PM</span>
+                </div>
               </div>
             </div>
           </div>
@@ -222,22 +243,19 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
 
           {/* orb */}
           <div className="relative mx-auto aspect-square w-full max-w-[420px] sm:max-w-[460px] lg:max-w-[490px] xl:max-w-[520px]" aria-hidden="false">
-            {/* Outer ambient glow ring */}
-            <span aria-hidden="true" className="absolute -inset-2 sm:-inset-3 rounded-full border border-white/10" />
-
-            {/* Orbiting dashed circle 1 (Outer) - clockwise rotation at 32s period */}
+            {/* Orbiting dashed circle 1 (Outer) - organic/randomized frequency */}
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute -inset-[1%] sm:-inset-[2%] rounded-full border border-dashed border-white/30 motion-safe:animate-[spin_32s_linear_infinite]"
+              className="pointer-events-none absolute -inset-[1%] sm:-inset-[2%] rounded-full border border-dashed border-white/30 motion-safe:animate-[orbit-random-1_31s_ease-in-out_infinite]"
             >
               <span className="absolute -top-[8px] left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-lime shadow-[0_0_22px_6px_rgba(169,224,11,0.75)]" />
               <span className="absolute -bottom-[6px] left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-[#2dd4bf] shadow-[0_0_16px_4px_rgba(45,212,191,0.65)]" />
             </span>
 
-            {/* Orbiting dashed circle 2 (Inner) - counter-clockwise rotation at 48s period */}
+            {/* Orbiting dashed circle 2 (Inner) - counter-orbiting with independent organic frequency */}
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute inset-[4%] sm:inset-[5%] rounded-full border border-dashed border-white/20 motion-safe:animate-[spin-reverse_48s_linear_infinite]"
+              className="pointer-events-none absolute inset-[4%] sm:inset-[5%] rounded-full border border-dashed border-white/20 motion-safe:animate-[orbit-random-2_43s_ease-in-out_infinite]"
             >
               <span className="absolute top-1/2 -right-[6px] h-3.5 w-3.5 -translate-y-1/2 rounded-full bg-[#2dd4bf] shadow-[0_0_16px_4px_rgba(45,212,191,0.65)]" />
               <span className="absolute top-1/2 -left-[6px] h-3 w-3 -translate-y-1/2 rounded-full bg-lime shadow-[0_0_14px_4px_rgba(169,224,11,0.65)]" />

@@ -29,8 +29,6 @@ export default function Benefits({ t }: { t: Treatment }) {
             className="relative isolate flex min-h-[290px] flex-col justify-between overflow-hidden rounded-[30px] p-6 text-white shadow-float sm:p-7 lg:col-span-2 lg:row-span-2 lg:p-8"
             style={{ background: "linear-gradient(145deg,#086874 0%,#0e8f93 55%,#6fb91a 138%)" }}
           >
-            <span aria-hidden="true" className="absolute -bottom-24 -right-24 -z-10 h-[360px] w-[360px] rounded-full border border-white/15" />
-            <span aria-hidden="true" className="absolute -bottom-12 -right-12 -z-10 h-[240px] w-[240px] rounded-full border border-white/20" />
             <span aria-hidden="true" className="absolute -left-10 -top-10 -z-10 h-48 w-48 rounded-full bg-lime/25 blur-3xl" />
 
             <div>
@@ -44,17 +42,26 @@ export default function Benefits({ t }: { t: Treatment }) {
               <p className="mt-2.5 max-w-[430px] text-[14.5px] leading-relaxed text-white/85 sm:text-[15.5px]">{lead.text}</p>
             </div>
 
+            {/* Tooth image circle with perfectly concentric, synchronous surrounding circles */}
             <div className="relative mt-6 flex justify-end">
-              <span className="grid h-[125px] w-[125px] place-items-center overflow-hidden rounded-full bg-white shadow-[0_20px_40px_-10px_rgb(0_0_0/0.4)] sm:h-[135px] sm:w-[135px]">
-                <Image
-                  src={`/images/treatments/${t.imageKey}-circle.webp`}
-                  alt=""
-                  width={220}
-                  height={220}
-                  sizes="135px"
-                  className="h-full w-full rounded-full object-cover"
-                />
-              </span>
+              <div className="relative">
+                {/* Concentric rings centered directly on the tooth image circle */}
+                <span aria-hidden="true" className="pointer-events-none absolute -inset-4 sm:-inset-5 rounded-full border border-white/25" />
+                <span aria-hidden="true" className="pointer-events-none absolute -inset-9 sm:-inset-11 rounded-full border border-white/15" />
+                <span aria-hidden="true" className="pointer-events-none absolute -inset-14 sm:-inset-17 rounded-full border border-dashed border-white/20 motion-safe:animate-[spin_45s_linear_infinite]" />
+
+                {/* Core Tooth image circle */}
+                <span className="relative grid h-[125px] w-[125px] place-items-center overflow-hidden rounded-full bg-white shadow-[0_20px_40px_-10px_rgb(0_0_0/0.45)] sm:h-[135px] sm:w-[135px]">
+                  <Image
+                    src={`/images/treatments/${t.imageKey}-circle.webp`}
+                    alt=""
+                    width={220}
+                    height={220}
+                    sizes="135px"
+                    className="h-full w-full rounded-full object-cover"
+                  />
+                </span>
+              </div>
             </div>
           </li>
 
