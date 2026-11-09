@@ -17,7 +17,7 @@ import { Breadcrumbs, Container } from "./ui";
 
 function ClinicInfoStrip() {
   return (
-    <Container className="relative z-10 -mt-[72px] lg:-mt-[78px]">
+    <Container className="relative z-10 -mt-[48px] sm:-mt-[50px] lg:-mt-[52px]">
       <div className="rounded-[28px] bg-white/95 p-3 shadow-float ring-1 ring-white/80 backdrop-blur lg:p-0">
         <div className="grid grid-cols-1 divide-y divide-[#d9e0e6] md:grid-cols-3 md:divide-x md:divide-y-0">
           {/* Item 1: Clinic Address */}
@@ -184,9 +184,9 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
 
   return (
     <section>
-      {/* ---------------- Banner - Normal straight bottom ---------------- */}
+      {/* ---------------- Banner - Normal straight bottom, full-screen on load ---------------- */}
       <div
-        className="relative isolate overflow-hidden text-white"
+        className="relative isolate flex flex-col justify-center overflow-hidden text-white min-h-[calc(100vh-86px+60px)]"
         style={{ background: "linear-gradient(115deg,#233c41 0%,#0b4a55 34%,#086874 68%,#10909a 100%)" }}
       >
         {/* decorative layers */}
@@ -197,7 +197,7 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
           className="pointer-events-none absolute inset-0 -z-10 opacity-[0.22] [background-image:radial-gradient(#fff_1px,transparent_1.2px)] [background-size:26px_26px] [mask-image:linear-gradient(100deg,#000_0%,transparent_62%)]"
         />
 
-        <Container className="grid items-center gap-10 pb-[120px] pt-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8 lg:pb-[150px] lg:pt-10">
+        <Container className="grid items-center gap-10 py-10 sm:py-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8 lg:py-14">
           {/* copy */}
           <div>
             <Breadcrumbs
