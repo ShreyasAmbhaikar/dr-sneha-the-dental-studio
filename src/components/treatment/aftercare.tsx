@@ -1,4 +1,4 @@
-import { CircleCheck, TriangleAlert } from "lucide-react";
+import { CircleCheck, Clock, TriangleAlert } from "lucide-react";
 import type { Treatment } from "@/lib/treatments";
 import { Container, Eyebrow, SectionTitle } from "./ui";
 
@@ -22,20 +22,23 @@ export default function Aftercare({ t }: { t: Treatment }) {
         </div>
 
         <div className="mt-8 grid gap-5 sm:gap-6 lg:mt-10 lg:grid-cols-[1.05fr_0.95fr]">
-          {/* Timeline */}
-          <div className="rounded-[28px] border border-white bg-white p-5.5 shadow-float sm:p-7">
-            <h3 className="font-display text-[18.5px] font-bold text-navy sm:text-[19.5px]">Recovery timeline</h3>
+          {/* Timeline - Styled with soft lime brand palette from About Us */}
+          <div className="rounded-[28px] border border-[#cde8b0] bg-gradient-to-br from-[#f2fcd9] to-[#e4f8be] p-5.5 shadow-card sm:p-7">
+            <h3 className="flex items-center gap-2.5 font-display text-[18.5px] font-bold text-navy sm:text-[19.5px]">
+              <Clock className="h-5 w-5 text-[#4f8612]" strokeWidth={2} />
+              Recovery timeline
+            </h3>
             <ol className="relative mt-5 space-y-4.5 pl-9">
-              <span aria-hidden="true" className="absolute bottom-2 left-[12px] top-2 w-[2.5px] rounded-full bg-gradient-to-b from-[#a9e00b] via-[#52b8a4] to-[#0d7f8a]" />
+              <span aria-hidden="true" className="absolute bottom-2 left-[12px] top-2 w-[2.5px] rounded-full bg-gradient-to-b from-[#84cc16] via-[#2f9e8f] to-[#0d7f8a]" />
               {t.aftercare.map((a) => (
                 <li key={a.when} className="relative">
-                  <span aria-hidden="true" className="absolute -left-9 top-0.5 grid h-[26px] w-[26px] place-items-center rounded-full border-2 border-[#a9e00b] bg-white">
+                  <span aria-hidden="true" className="absolute -left-9 top-0.5 grid h-[26px] w-[26px] place-items-center rounded-full border-2 border-[#84cc16] bg-white shadow-2xs">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#0d7f8a]" />
                   </span>
-                  <span className="inline-block rounded-full bg-lime-soft px-3 py-0.5 text-[12px] font-bold uppercase tracking-wider text-[#3f6a0a]">
+                  <span className="inline-block rounded-full border border-[#bce866] bg-white/85 px-3 py-0.5 text-[12px] font-bold uppercase tracking-wider text-[#3f6a0a] shadow-2xs">
                     {a.when}
                   </span>
-                  <p className="mt-1.5 text-[14px] leading-relaxed text-ink/85 sm:text-[14.5px]">{a.text}</p>
+                  <p className="mt-1.5 text-[14px] leading-relaxed text-ink/90 sm:text-[14.5px]">{a.text}</p>
                 </li>
               ))}
             </ol>

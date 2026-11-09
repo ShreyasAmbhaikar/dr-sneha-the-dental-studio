@@ -42,13 +42,12 @@ export default function Benefits({ t }: { t: Treatment }) {
               <p className="mt-2.5 max-w-[430px] text-[14.5px] leading-relaxed text-white/85 sm:text-[15.5px]">{lead.text}</p>
             </div>
 
-            {/* Tooth image circle with perfectly concentric, synchronous surrounding circles */}
+            {/* Tooth image circle with two concentric, static surrounding circles */}
             <div className="relative mt-6 flex justify-end">
               <div className="relative">
-                {/* Concentric rings centered directly on the tooth image circle */}
-                <span aria-hidden="true" className="pointer-events-none absolute -inset-4 sm:-inset-5 rounded-full border border-white/25" />
-                <span aria-hidden="true" className="pointer-events-none absolute -inset-9 sm:-inset-11 rounded-full border border-white/15" />
-                <span aria-hidden="true" className="pointer-events-none absolute -inset-14 sm:-inset-17 rounded-full border border-dashed border-white/20 motion-safe:animate-[spin_45s_linear_infinite]" />
+                {/* Two static concentric rings centered directly on the tooth image circle */}
+                <span aria-hidden="true" className="pointer-events-none absolute -inset-7 sm:-inset-8 rounded-full border border-white/25" />
+                <span aria-hidden="true" className="pointer-events-none absolute -inset-14 sm:-inset-16 rounded-full border border-white/15" />
 
                 {/* Core Tooth image circle */}
                 <span className="relative grid h-[125px] w-[125px] place-items-center overflow-hidden rounded-full bg-white shadow-[0_20px_40px_-10px_rgb(0_0_0/0.45)] sm:h-[135px] sm:w-[135px]">
