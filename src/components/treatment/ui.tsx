@@ -6,7 +6,7 @@ export function Container({ children, className = "" }: { children: ReactNode; c
   return <div className={`mx-auto w-full max-w-[1280px] px-5 sm:px-8 ${className}`}>{children}</div>;
 }
 
-/** Eyebrow with a leading rule. `light` is for use on dark backgrounds. */
+/** Eyebrow with a leading rule (and trailing rule when centered). `light` is for use on dark backgrounds. */
 export function Eyebrow({ children, light = false, center = false }: { children: ReactNode; light?: boolean; center?: boolean }) {
   return (
     <div className={`flex items-center gap-2.5 ${center ? "justify-center" : ""}`}>
@@ -17,6 +17,9 @@ export function Eyebrow({ children, light = false, center = false }: { children:
       >
         {children}
       </span>
+      {center && (
+        <span className={`h-[2px] w-7 rounded-full ${light ? "bg-lime" : "bg-gradient-to-r from-[#4f9a3d] to-[#6aa81a]"}`} />
+      )}
     </div>
   );
 }

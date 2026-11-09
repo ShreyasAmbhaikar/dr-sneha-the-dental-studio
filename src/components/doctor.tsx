@@ -17,18 +17,18 @@ export default function Doctor() {
   return (
     <section id="about" className="scroll-mt-4 px-5 pb-12 pt-20 lg:pb-[77px] lg:pt-[103px]">
       <div className="mx-auto flex max-w-[1260px] flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-0">
-        {/* Portrait with lime accent */}
-        <div className="relative mx-auto w-full max-w-[400px] shrink-0 lg:mx-0 lg:w-[370px] xl:w-[395px]">
+        {/* Portrait with lime accent — optimized size in proportion with bio & credentials */}
+        <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[335px] shrink-0 lg:mx-0 lg:w-[295px] xl:w-[320px]">
           <span
             aria-hidden="true"
-            className="absolute -left-[14px] bottom-[16px] top-[8px] w-[50px] rounded-[24px] bg-lime-soft"
+            className="absolute -left-[12px] bottom-[14px] top-[7px] w-[42px] rounded-[22px] bg-lime-soft"
           />
-          <div className="relative aspect-[4/4.6] overflow-hidden rounded-[24px] shadow-float">
+          <div className="relative aspect-[4/4.4] overflow-hidden rounded-[22px] shadow-float">
             <Image
               src="/images/dr-sneha-sardar.webp"
               alt="Dr. Sneha Sardar, Chief Dentist at Dr. Sneha - The Dental Studio"
               fill
-              sizes="(min-width: 1024px) 395px, 90vw"
+              sizes="(min-width: 1024px) 320px, 90vw"
               className="object-cover object-top"
             />
           </div>
