@@ -17,7 +17,7 @@ import { Breadcrumbs, Container } from "./ui";
 
 function ClinicInfoStrip() {
   return (
-    <Container className="relative z-10">
+    <Container className="relative z-10 -mt-[48px] sm:-mt-[50px] lg:-mt-[52px]">
       <div className="rounded-[28px] border border-[#d9ebef] bg-white p-3 shadow-card ring-1 ring-black/[0.04] lg:p-0">
         <div className="grid grid-cols-1 md:grid-cols-3">
           {/* Item 1: Clinic Address - Fully navigational with hover feedback */}
@@ -205,7 +205,7 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
     <section>
       {/* ---------------- Banner - Normal straight bottom, full-screen on load ---------------- */}
       <div
-        className="relative isolate flex flex-col justify-center overflow-hidden text-white min-h-[calc(100vh-86px)]"
+        className="relative isolate flex flex-col justify-center overflow-hidden text-white min-h-[calc(100vh-86px+64px)]"
         style={{ background: "linear-gradient(115deg,#233c41 0%,#0b4a55 34%,#086874 68%,#10909a 100%)" }}
       >
         {/* decorative layers */}
@@ -216,7 +216,7 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
           className="pointer-events-none absolute inset-0 -z-10 opacity-[0.22] [background-image:radial-gradient(#fff_1px,transparent_1.2px)] [background-size:26px_26px] [mask-image:linear-gradient(100deg,#000_0%,transparent_62%)]"
         />
 
-        <Container className="grid items-center gap-8 py-8 sm:py-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10 lg:py-12">
+        <Container className="grid items-center gap-8 pt-6 pb-20 sm:pt-8 sm:pb-24 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10 lg:pt-10 lg:pb-28">
           {/* copy */}
           <div>
             <Breadcrumbs
@@ -330,10 +330,8 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
         </Container>
       </div>
 
-      {/* ---------------- Clinic Info Strip (Displayed when scrolling downwards) ---------------- */}
-      <div className="relative z-10 bg-gradient-to-b from-[#f0fafb] via-[#f7fcfd] to-white pt-7 pb-4 sm:pt-9 sm:pb-6 border-b border-[#e2eef1]">
-        <ClinicInfoStrip />
-      </div>
+      {/* ---------------- Clinic Info Strip - Centered on seam between hero and bottom section ---------------- */}
+      <ClinicInfoStrip />
     </section>
   );
 }

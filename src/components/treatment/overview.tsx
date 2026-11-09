@@ -4,7 +4,7 @@ import { Container, Eyebrow, SectionTitle } from "./ui";
 
 export default function Overview({ t }: { t: Treatment }) {
   return (
-    <section aria-labelledby="overview-title" className="pt-10 pb-12 sm:pt-12 sm:pb-15 lg:pt-14 lg:pb-[72px]">
+    <section aria-labelledby="overview-title" className="pt-16 pb-12 sm:pt-20 sm:pb-15 lg:pt-24 lg:pb-[72px]">
       <Container className="grid items-center gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
         {/* Left Column: Left-aligned Heading, Eyebrow and Content */}
         <div>
