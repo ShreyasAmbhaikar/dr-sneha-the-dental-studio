@@ -19,25 +19,39 @@ function ClinicInfoStrip() {
   return (
     <Container className="relative z-10 -mt-[48px] sm:-mt-[50px] lg:-mt-[52px]">
       <div className="rounded-[28px] bg-white/95 p-3 shadow-float ring-1 ring-white/80 backdrop-blur lg:p-0">
-        <div className="grid grid-cols-1 divide-y divide-[#d9e0e6] md:grid-cols-3 md:divide-x md:divide-y-0">
-          {/* Item 1: Clinic Address */}
-          <div className="flex items-center gap-4 px-4 py-4 lg:px-7 lg:py-5">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          {/* Item 1: Clinic Address - Fully navigational with hover feedback */}
+          <a
+            href={site.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Open Dr. Sneha The Dental Studio location in Google Maps"
+            className="group flex items-center gap-4 px-4 py-4 lg:px-7 lg:py-5 transition-colors hover:bg-[#a9e00b]/5 rounded-2xl"
+          >
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612] transition-transform duration-300 group-hover:scale-105">
               <MapPin className="h-6 w-6" strokeWidth={1.8} />
             </span>
-            <div>
-              <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">Clinic Address</div>
-              <div className="mt-0.5 font-display text-[14px] sm:text-[14.5px] font-bold leading-snug text-navy">
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">
+                <span>Clinic Address</span>
+                <span className="text-[10.5px] font-bold text-teal opacity-0 transition-opacity duration-200 group-hover:opacity-100">↗ Open Maps</span>
+              </div>
+              <div className="mt-0.5 font-display text-[14px] sm:text-[14.5px] font-bold leading-snug text-navy transition group-hover:text-teal">
                 Shop No. 2/3/4, Ground Floor, Swaraj Complex
               </div>
-              <div className="text-[12px] text-ink/75 leading-tight mt-0.5">
+              <div className="text-[12px] text-ink/75 leading-tight mt-0.5 group-hover:text-ink/90">
                 Opp. Datta Mandir, Wadgaon Sheri, Pune 411014
               </div>
             </div>
-          </div>
+          </a>
 
-          {/* Item 2: Phone Numbers */}
-          <div className="flex items-center gap-4 px-4 py-4 lg:px-7 lg:py-5">
+          {/* Item 2: Phone Numbers - Divider has vertical gap above and below */}
+          <div className="relative flex items-center gap-4 px-4 py-4 lg:px-7 lg:py-5">
+            {/* Desktop vertical divider with gap above and below */}
+            <span aria-hidden="true" className="hidden md:block absolute left-0 top-3.5 bottom-3.5 w-[1px] bg-[#d9e0e6]" />
+            {/* Mobile horizontal divider with side margin */}
+            <span aria-hidden="true" className="md:hidden absolute top-0 left-4 right-4 h-[1px] bg-[#d9e0e6]" />
+
             <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
               <Phone className="h-6 w-6" strokeWidth={1.8} />
             </span>
@@ -67,8 +81,13 @@ function ClinicInfoStrip() {
             </div>
           </div>
 
-          {/* Item 3: Clinic Timings */}
-          <div className="flex items-center gap-4 px-4 py-4 lg:px-7 lg:py-5">
+          {/* Item 3: Clinic Timings - Divider has vertical gap above and below */}
+          <div className="relative flex items-center gap-4 px-4 py-4 lg:px-7 lg:py-5">
+            {/* Desktop vertical divider with gap above and below */}
+            <span aria-hidden="true" className="hidden md:block absolute left-0 top-3.5 bottom-3.5 w-[1px] bg-[#d9e0e6]" />
+            {/* Mobile horizontal divider with side margin */}
+            <span aria-hidden="true" className="md:hidden absolute top-0 left-4 right-4 h-[1px] bg-[#d9e0e6]" />
+
             <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
               <Clock className="h-6 w-6" strokeWidth={1.8} />
             </span>
@@ -186,7 +205,7 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
     <section>
       {/* ---------------- Banner - Normal straight bottom, full-screen on load ---------------- */}
       <div
-        className="relative isolate flex flex-col justify-center overflow-hidden text-white min-h-[calc(100vh-86px+60px)]"
+        className="relative isolate flex flex-col justify-center overflow-hidden text-white min-h-[calc(100vh-86px)]"
         style={{ background: "linear-gradient(115deg,#233c41 0%,#0b4a55 34%,#086874 68%,#10909a 100%)" }}
       >
         {/* decorative layers */}
@@ -197,7 +216,7 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
           className="pointer-events-none absolute inset-0 -z-10 opacity-[0.22] [background-image:radial-gradient(#fff_1px,transparent_1.2px)] [background-size:26px_26px] [mask-image:linear-gradient(100deg,#000_0%,transparent_62%)]"
         />
 
-        <Container className="grid items-center gap-10 py-10 sm:py-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8 lg:py-14">
+        <Container className="grid items-center gap-8 pt-4 pb-16 sm:pt-6 sm:pb-20 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8 lg:pt-8 lg:pb-24">
           {/* copy */}
           <div>
             <Breadcrumbs
@@ -205,14 +224,14 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
               items={[{ name: "Home", href: "/" }, { name: "Treatments", href: "/treatments" }, { name: t.name }]}
             />
 
-            <h1 className="mt-6 sm:mt-8 font-display text-[34px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[46px] lg:text-[50px]">
+            <h1 className="mt-3.5 sm:mt-4.5 font-display text-[34px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[46px] lg:text-[50px]">
               {t.h1Lead}{" "}
               <span className="bg-gradient-to-r from-[#e9ff7a] via-[#c4ee2a] to-[#8fd21c] bg-clip-text text-transparent">
                 {t.h1Accent}
               </span>
             </h1>
 
-            <p className="mt-5 max-w-[560px] text-[17.5px] leading-[1.65] text-white/85">{t.tagline}</p>
+            <p className="mt-4 sm:mt-5 max-w-[560px] text-[16px] sm:text-[17.5px] leading-[1.65] text-white/85">{t.tagline}</p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href="#contact" className="btn-lime h-[52px] px-7 text-[16.5px]">
