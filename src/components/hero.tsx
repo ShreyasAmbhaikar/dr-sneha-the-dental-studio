@@ -50,8 +50,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-5 max-w-[460px] text-[17px] leading-[26px] text-ink sm:mt-6 sm:text-[18px] lg:text-[19.5px] lg:leading-[28px]">
-              Advanced, compassionate and personalized dental care for you and your family under the expertise of Dr.
-              Sneha.
+              Advanced, compassionate and personalized dental care for you and your family under the expertise of Dr. Sneha Sardar.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-[24px] gap-y-4 sm:mt-8 lg:pb-[96px]">

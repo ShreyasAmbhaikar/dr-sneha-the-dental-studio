@@ -77,21 +77,13 @@ body {
   }
 }
 
-@keyframes counter-spin {
+@keyframes spin-reverse {
   from {
-    transform: rotate(0deg);
+    transform: rotate(360deg);
   }
   to {
-    transform: rotate(-360deg);
+    transform: rotate(0deg);
   }
-}
-
-.animate-spin-orbit {
-  animation: spin 38s linear infinite;
-}
-
-.animate-counter-orbit {
-  animation: counter-spin 38s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
