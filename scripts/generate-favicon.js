@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const fs = require('fs');
 
 async function main() {
-  const imagePath = 'C:/Users/Shreyas Asus Tuf/.gemini/antigravity/brain/17fc3214-730b-411a-95a5-95cd76a14bd4/.user_uploaded/media_1794244195451_8929f45b.jpg';
+  const imagePath = 'C:/Users/Shreyas Asus Tuf/.gemini/antigravity/brain/17fc3214-730b-411a-95a5-95cd76a14bd4/.user_uploaded/media_1794245333371_70f9193a.jpg';
   const { data, info } = await sharp(imagePath)
     .raw()
     .toBuffer({ resolveWithObject: true });
@@ -17,54 +17,30 @@ async function main() {
   const dx = [1, 1, 0, -1, -1, -1, 0, 1];
   const dy = [0, 1, 1, 1, 0, -1, -1, -1];
 
-  function traceOuterBoundary(startX, startY) {
-    const points = [];
-    let x = startX, y = startY;
-    let dir = 7;
-    for (let step = 0; step < 50000; step++) {
-      points.push([x, y]);
-      let found = false;
-      for (let i = 0; i < 8; i++) {
-        const nd = (dir + 7 + i) % 8;
-        const nx = x + dx[nd];
-        const ny = y + dy[nd];
-        if (isLime(nx, ny)) {
-          x = nx;
-          y = ny;
-          dir = nd;
-          found = true;
-          break;
-        }
-      }
-      if (!found || (x === startX && y === startY)) break;
+  let startX = null, startY = null;
+  for (let y = 0; y < H && !startX; y++) {
+    for (let x = 0; x < W; x++) {
+      if (isLime(x, y)) { startX = x; startY = y; break; }
     }
-    return points;
   }
 
-  function traceInnerToothHole(startX, startY) {
-    const points = [];
-    let x = startX, y = startY;
-    let dir = 0;
-    for (let step = 0; step < 50000; step++) {
-      points.push([x, y]);
-      let found = false;
-      for (let i = 0; i < 8; i++) {
-        const nd = (dir + 7 + i) % 8;
-        const nx = x + dx[nd];
-        const ny = y + dy[nd];
-        // Trace 0s inside the hole that border 1s
-        if (!isLime(nx, ny)) {
-          x = nx;
-          y = ny;
-          dir = nd;
-          found = true;
-          break;
-        }
+  let x = startX, y = startY, dir = 7;
+  const rawPts = [];
+  for (let step = 0; step < 50000; step++) {
+    rawPts.push([x, y]);
+    let found = false;
+    for (let i = 0; i < 8; i++) {
+      const nd = (dir + 7 + i) % 8;
+      const nx = x + dx[nd];
+      const ny = y + dy[nd];
+      if (isLime(nx, ny)) {
+        x = nx; y = ny; dir = nd; found = true; break;
       }
-      if (!found || (x === startX && y === startY)) break;
     }
-    return points;
+    if (!found || (x === startX && y === startY)) break;
   }
+
+  console.log('Raw perimeter points:', rawPts.length);
 
   function rdp(points, epsilon) {
     if (points.length <= 2) return points;
@@ -90,60 +66,37 @@ async function main() {
     }
   }
 
-  // Find outer start (first lime pixel from top)
-  let outerStart = null;
-  for (let y = 0; y < H && !outerStart; y++) {
-    for (let x = 0; x < W; x++) {
-      if (isLime(x, y)) { outerStart = [x, y]; break; }
-    }
-  }
-
-  // Find inner start (first non-lime pixel inside the tooth cutout from center)
-  let innerStart = null;
-  let insideSpine = false;
-  for (let x = 250; x < 600; x++) {
-    if (isLime(x, 512)) insideSpine = true;
-    if (insideSpine && !isLime(x, 512)) { innerStart = [x, 512]; break; }
-  }
-
-  const outerRaw = traceOuterBoundary(outerStart[0], outerStart[1]);
-  const innerRaw = traceInnerToothHole(innerStart[0], innerStart[1]);
-
-  console.log('Outer raw points:', outerRaw.length);
-  console.log('Inner raw points:', innerRaw.length);
-
-  const outerSimplified = rdp(outerRaw, 1.0);
-  const innerSimplified = rdp(innerRaw, 1.0);
-
-  console.log('Outer simplified:', outerSimplified.length);
-  console.log('Inner simplified:', innerSimplified.length);
+  // Adjust coordinates slightly (+5, +2) so the circle center (507, 510) aligns with (512, 512)
+  const centeredPts = rawPts.map(([px, py]) => [px + 5, py + 2]);
+  const simplified = rdp(centeredPts, 1.2);
+  console.log('Simplified points count:', simplified.length);
 
   function toPath(pts) {
     return pts.map((p, i) => (i === 0 ? 'M' : 'L') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ') + ' Z';
   }
 
-  const outerPath = toPath(outerSimplified);
-  const innerPath = toPath(innerSimplified);
+  const toothPath = toPath(simplified);
 
-  // Deep dental teal circular background matching brand identity & attachment 3
+  // SVG representation matching the new uploaded circular favicon
   const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
   <circle cx="512" cy="512" r="490" fill="#102b33"/>
-  <path fill="#a4f804" fill-rule="evenodd" d="${outerPath} ${innerPath}"/>
+  <path fill="#a4f804" d="${toothPath}"/>
 </svg>
 `;
 
   fs.writeFileSync('src/app/icon.svg', svgContent);
   fs.writeFileSync('public/favicon.svg', svgContent);
-  console.log('Successfully wrote src/app/icon.svg and public/favicon.svg');
+  console.log('Successfully written src/app/icon.svg and public/favicon.svg');
 
-  // Generate crisp standard sizes for browsers and mobile bookmarks
+  // Generate raster favicon variants for browser & mobile home screen compatibility
   const svgBuffer = Buffer.from(svgContent);
   await sharp(svgBuffer).resize(32, 32).png().toFile('public/favicon.png');
+  await sharp(svgBuffer).resize(32, 32).png().toFile('public/favicon-32x32.png');
   await sharp(svgBuffer).resize(48, 48).png().toFile('public/favicon-48x48.png');
   await sharp(svgBuffer).resize(180, 180).png().toFile('public/apple-touch-icon.png');
   await sharp(svgBuffer).resize(192, 192).png().toFile('public/icon-192.png');
   await sharp(svgBuffer).resize(512, 512).png().toFile('public/icon-512.png');
-  console.log('Successfully generated all browser PNG icons!');
+  console.log('Successfully generated all browser and mobile PNG icons!');
 }
 
 main().catch(console.error);
