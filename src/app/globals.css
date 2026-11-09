@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens — sampled from the Dr Sneha Dental Studio reference
+------------------------------------------------------------------- */
+@theme inline {
+  --color-navy: #0a2d55;
+  --color-ink: #12304f;
+  --color-teal: #0d7f8a;
+  --color-teal-deep: #086874;
+  --color-lime: #a9e00b;
+  --color-lime-soft: #dcf091;
+  --color-leaf: #679320;
+  --color-header: #233c41;
+  --color-footer: #22353c;
+  --color-aqua: #cbe9eb;
+  --color-mist: #edf9fb;
+
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 10px 28px -6px rgb(40 90 120 / 0.13), 0 2px 6px rgb(40 90 120 / 0.05);
+  --shadow-float: 0 22px 50px -14px rgb(30 80 100 / 0.22);
+  --shadow-lime: 0 10px 20px -6px rgb(143 196 10 / 0.5);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #12304f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  /* Lime pill button used across the page */
+  .btn-lime {
+    @apply inline-flex items-center justify-center gap-3 rounded-full font-display font-bold text-navy transition duration-200 hover:-translate-y-0.5 hover:brightness-105 active:translate-y-0;
+    background: linear-gradient(180deg, #d8f952 0%, #b9ea1c 48%, #a9e00b 100%);
+    box-shadow: var(--shadow-lime), inset 0 1px 0 rgb(255 255 255 / 0.55);
+  }
+
+  /* Outlined pill button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-3 rounded-full border-[1.5px] bg-white/60 font-display font-bold text-navy transition duration-200 hover:-translate-y-0.5 hover:bg-white;
+  }
+
+  /* Small letter-spaced section eyebrow */
+  .eyebrow {
+    @apply font-display font-bold uppercase;
+    letter-spacing: 0.24em;
+  }
+
+  .eyebrow-gradient {
+    background: linear-gradient(90deg, #6aa81a 0%, #0d7f8a 55%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Custom Scrollbar matching the theme
+------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f8fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0d7f8a;
+  border-radius: 9999px;
+  border: 2px solid #f1f8fa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #086874;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0d7f8a #f1f8fa;
+}
