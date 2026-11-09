@@ -17,63 +17,54 @@ import { Breadcrumbs, Container } from "./ui";
 
 function ClinicInfoStrip() {
   return (
-    <Container className="relative z-10 -mt-9 sm:-mt-10 lg:-mt-11">
-      <div className="rounded-[24px] bg-gradient-to-br from-[#b9e84a] via-white to-[#7fd0d8] p-[1.5px] shadow-float">
-        <div className="relative grid grid-cols-1 divide-y divide-teal/15 overflow-hidden rounded-[23px] bg-white/98 p-2 backdrop-blur sm:p-2.5 md:grid-cols-3 md:divide-x md:divide-y-0">
-          {/* Top-Right Soft Ambient Lime Blob */}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-lime/20 to-transparent"
-          />
-
+    <Container className="relative z-10 -mt-[72px] lg:-mt-[78px]">
+      <div className="rounded-[28px] bg-white/95 p-3 shadow-float ring-1 ring-white/80 backdrop-blur lg:p-0">
+        <div className="grid grid-cols-1 divide-y divide-[#d9e0e6] md:grid-cols-3 md:divide-x md:divide-y-0">
           {/* Item 1: Clinic Location */}
-          <div className="relative z-10 flex items-center gap-3.5 px-3 py-3 sm:px-4 sm:py-3.5 lg:px-6">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
-              <MapPin className="h-5 w-5" strokeWidth={2} />
-            </div>
+          <div className="flex items-center gap-4 px-4 py-4 lg:px-8 lg:py-6">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
+              <MapPin className="h-6 w-6" strokeWidth={1.8} />
+            </span>
             <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-teal-deep">Clinic Location</div>
-              <div className="font-display text-[13.5px] sm:text-[14px] font-bold text-navy leading-tight mt-0.5">
+              <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">Clinic Location</div>
+              <div className="mt-0.5 font-display text-[15.5px] sm:text-[16px] font-bold leading-snug text-navy">
                 Ground Floor, Swaraj Complex
               </div>
-              <div className="text-[12px] text-ink/75 leading-tight mt-0.5">
+              <div className="text-[12.5px] text-ink/75 leading-tight">
                 Opp. Datta Mandir, Wadgaon Sheri, Pune
               </div>
             </div>
           </div>
 
           {/* Item 2: Phone Number */}
-          <div className="relative z-10 flex items-center gap-3.5 px-3 py-3 sm:px-4 sm:py-3.5 lg:px-6">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
-              <Phone className="h-5 w-5" strokeWidth={2} />
-            </div>
+          <div className="flex items-center gap-4 px-4 py-4 lg:px-8 lg:py-6">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
+              <Phone className="h-6 w-6" strokeWidth={1.8} />
+            </span>
             <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-teal-deep">Phone Number</div>
-              <div className="flex items-center gap-2 mt-0.5">
-                <a
-                  href={`tel:${site.phoneHref}`}
-                  className="font-display text-[14px] sm:text-[14.5px] font-bold text-navy hover:text-teal transition"
-                >
+              <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">Phone Number</div>
+              <div className="mt-0.5 font-display text-[15.5px] sm:text-[16px] font-bold leading-snug text-navy">
+                <a href={`tel:${site.phoneHref}`} className="transition hover:text-teal">
                   {site.phone}
                 </a>
               </div>
-              <div className="text-[12px] text-ink/75 leading-tight mt-0.5">
-                Appointment &amp; Emergency Inquiries
+              <div className="text-[12.5px] text-ink/75 leading-tight">
+                Doctor Appointment &amp; Inquiries
               </div>
             </div>
           </div>
 
           {/* Item 3: Clinic Timings */}
-          <div className="relative z-10 flex items-center gap-3.5 px-3 py-3 sm:px-4 sm:py-3.5 lg:px-6">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
-              <Clock className="h-5 w-5" strokeWidth={2} />
-            </div>
+          <div className="flex items-center gap-4 px-4 py-4 lg:px-8 lg:py-6">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#eefad0] to-[#d3f1f3] text-[#4f8612]">
+              <Clock className="h-6 w-6" strokeWidth={1.8} />
+            </span>
             <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-teal-deep">Clinic Timings</div>
-              <div className="font-display text-[13px] sm:text-[13.5px] font-bold text-navy leading-tight mt-0.5">
+              <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-teal-deep">Clinic Timings</div>
+              <div className="mt-0.5 font-display text-[14.5px] sm:text-[15px] font-bold leading-snug text-navy">
                 Mon – Sat: 10:30 AM – 2:30 PM &amp; 5:30 – 9:30 PM
               </div>
-              <div className="text-[12px] text-ink/75 leading-tight mt-0.5">
+              <div className="text-[12.5px] text-ink/75 leading-tight">
                 SUN: 10:30 AM – 1:30 PM
               </div>
             </div>
@@ -89,9 +80,9 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
 
   if (isGeneralDentistry) {
     return (
-      <section className="relative">
+      <section className="relative overflow-hidden">
         {/* Cinematic Treatment Hero Banner - Straight bottom, compact sleek height */}
-        <div className="relative flex items-center overflow-hidden text-white pb-14 sm:pb-16 lg:pb-18">
+        <div className="relative flex items-center overflow-hidden text-white">
           {/* Background Image: Treatment Photo */}
           <div className="absolute inset-0 -z-20">
             <Image
@@ -124,7 +115,7 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
             className="pointer-events-none absolute bottom-0 left-[28%] -z-10 h-[280px] w-[280px] rounded-full bg-[#14b8a6]/20 blur-[90px]"
           />
 
-          <Container className="relative z-10 w-full pt-7 sm:pt-8.5 lg:pt-10">
+          <Container className="relative z-10 w-full py-7 sm:py-8.5 lg:py-10">
             <div className="max-w-[760px]">
               {/* Breadcrumbs */}
               <Breadcrumbs
@@ -166,15 +157,12 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
             </div>
           </Container>
         </div>
-
-        {/* Info Strip centered between the hero banner and the next section */}
-        <ClinicInfoStrip />
       </section>
     );
   }
 
   return (
-    <section className="relative">
+    <section>
       {/* ---------------- Banner - Normal straight bottom ---------------- */}
       <div
         className="relative isolate overflow-hidden text-white"
@@ -188,7 +176,7 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
           className="pointer-events-none absolute inset-0 -z-10 opacity-[0.22] [background-image:radial-gradient(#fff_1px,transparent_1.2px)] [background-size:26px_26px] [mask-image:linear-gradient(100deg,#000_0%,transparent_62%)]"
         />
 
-        <Container className="grid items-center gap-8 pb-14 pt-5 sm:pb-16 sm:pt-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:pb-18 lg:pt-7">
+        <Container className="grid items-center gap-10 pb-[120px] pt-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8 lg:pb-[150px] lg:pt-10">
           {/* copy */}
           <div>
             <Breadcrumbs
@@ -196,34 +184,34 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
               items={[{ name: "Home", href: "/" }, { name: "Treatments", href: "/treatments" }, { name: t.name }]}
             />
 
-            <h1 className="mt-3.5 sm:mt-4 font-display text-[30px] font-extrabold leading-[1.12] tracking-[-0.02em] sm:text-[40px] lg:text-[44px]">
+            <h1 className="mt-6 sm:mt-8 font-display text-[34px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[46px] lg:text-[50px]">
               {t.h1Lead}{" "}
               <span className="bg-gradient-to-r from-[#e9ff7a] via-[#c4ee2a] to-[#8fd21c] bg-clip-text text-transparent">
                 {t.h1Accent}
               </span>
             </h1>
 
-            <p className="mt-3 max-w-[540px] text-[15.5px] sm:text-[16px] leading-[1.6] text-white/85">{t.tagline}</p>
+            <p className="mt-5 max-w-[560px] text-[17.5px] leading-[1.65] text-white/85">{t.tagline}</p>
 
-            <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3.5">
-              <Link href="#contact" className="btn-lime h-[48px] px-6 text-[15.5px]">
-                <CalendarCheck className="h-4.5 w-4.5" strokeWidth={1.8} />
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link href="#contact" className="btn-lime h-[52px] px-7 text-[16.5px]">
+                <CalendarCheck className="h-5 w-5" strokeWidth={1.8} />
                 Book a Consultation
-                <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                <ArrowRight className="h-[18px] w-[18px]" strokeWidth={2.2} />
               </Link>
               <a
                 href={`tel:${site.phoneHref}`}
-                className="inline-flex h-[48px] items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 font-display text-[15px] font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
+                className="inline-flex h-[52px] items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-6 font-display text-[16px] font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
               >
-                <Phone className="h-4 w-4 text-lime" strokeWidth={2} />
+                <Phone className="h-[18px] w-[18px] text-lime" strokeWidth={2} />
                 {site.phone}
               </a>
             </div>
 
-            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[13.5px] sm:text-[14px] text-white/85">
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[14.5px] text-white/85">
               {["Gentle, comfort-first care", "Clear, upfront guidance", "Sterile & safe clinic"].map((x) => (
                 <li key={x} className="flex items-center gap-2">
-                  <span className="grid h-4.5 w-4.5 place-items-center rounded-full bg-lime/90 text-navy">
+                  <span className="grid h-5 w-5 place-items-center rounded-full bg-lime/90 text-navy">
                     <Check className="h-3 w-3" strokeWidth={3.5} />
                   </span>
                   {x}
@@ -233,17 +221,17 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
           </div>
 
           {/* orb */}
-          <div className="relative mx-auto aspect-square w-full max-w-[370px] sm:max-w-[400px] lg:max-w-[430px]" aria-hidden="false">
+          <div className="relative mx-auto aspect-square w-full max-w-[420px] sm:max-w-[460px] lg:max-w-[490px] xl:max-w-[520px]" aria-hidden="false">
             {/* Outer ambient glow ring */}
-            <span aria-hidden="true" className="absolute -inset-2 rounded-full border border-white/10" />
+            <span aria-hidden="true" className="absolute -inset-2 sm:-inset-3 rounded-full border border-white/10" />
 
             {/* Orbiting dashed circle 1 (Outer) - clockwise rotation at 32s period */}
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute -inset-[2%] sm:-inset-[3%] rounded-full border border-dashed border-white/30 motion-safe:animate-[spin_32s_linear_infinite]"
+              className="pointer-events-none absolute -inset-[1%] sm:-inset-[2%] rounded-full border border-dashed border-white/30 motion-safe:animate-[spin_32s_linear_infinite]"
             >
-              <span className="absolute -top-[7px] left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-lime shadow-[0_0_18px_5px_rgba(169,224,11,0.75)]" />
-              <span className="absolute -bottom-[5px] left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-[#2dd4bf] shadow-[0_0_14px_3px_rgba(45,212,191,0.65)]" />
+              <span className="absolute -top-[8px] left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-lime shadow-[0_0_22px_6px_rgba(169,224,11,0.75)]" />
+              <span className="absolute -bottom-[6px] left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-[#2dd4bf] shadow-[0_0_16px_4px_rgba(45,212,191,0.65)]" />
             </span>
 
             {/* Orbiting dashed circle 2 (Inner) - counter-clockwise rotation at 48s period */}
@@ -251,52 +239,52 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
               aria-hidden="true"
               className="pointer-events-none absolute inset-[4%] sm:inset-[5%] rounded-full border border-dashed border-white/20 motion-safe:animate-[spin-reverse_48s_linear_infinite]"
             >
-              <span className="absolute top-1/2 -right-[6px] h-3 w-3 -translate-y-1/2 rounded-full bg-[#2dd4bf] shadow-[0_0_14px_4px_rgba(45,212,191,0.65)]" />
-              <span className="absolute top-1/2 -left-[5px] h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-lime shadow-[0_0_12px_3px_rgba(169,224,11,0.65)]" />
+              <span className="absolute top-1/2 -right-[6px] h-3.5 w-3.5 -translate-y-1/2 rounded-full bg-[#2dd4bf] shadow-[0_0_16px_4px_rgba(45,212,191,0.65)]" />
+              <span className="absolute top-1/2 -left-[6px] h-3 w-3 -translate-y-1/2 rounded-full bg-lime shadow-[0_0_14px_4px_rgba(169,224,11,0.65)]" />
             </span>
 
             {/* Soft inner aura glow */}
             <span aria-hidden="true" className="absolute inset-[6%] sm:inset-[7%] rounded-full bg-white/10 blur-[8px]" />
 
             {/* Core treatment image circle - NO border around circle, pristine background & image */}
-            <div className="absolute inset-[9%] sm:inset-[10%] overflow-hidden rounded-full bg-[radial-gradient(circle_at_30%_22%,#ffffff_0%,#eaf8fa_62%,#cfeef2_100%)] p-1.5 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.45)]">
+            <div className="absolute inset-[9%] sm:inset-[10%] overflow-hidden rounded-full bg-[radial-gradient(circle_at_30%_22%,#ffffff_0%,#eaf8fa_62%,#cfeef2_100%)] p-2 shadow-[0_35px_80px_-15px_rgba(0,0,0,0.5)]">
               <Image
                 src={`/images/treatments/${t.imageKey}-circle.webp`}
                 alt={t.imageAlt}
                 width={500}
                 height={500}
                 priority
-                sizes="(min-width: 1280px) 430px, (min-width: 1024px) 380px, 75vw"
+                sizes="(min-width: 1280px) 460px, (min-width: 1024px) 400px, 75vw"
                 className="h-full w-full rounded-full object-cover drop-shadow-[0_12px_28px_rgba(0,0,0,0.22)]"
               />
             </div>
 
             {/* Floating glassmorphic info cards */}
-            <div className="absolute -left-1 sm:-left-4 top-[5%] flex items-center gap-2.5 rounded-2xl border border-white/30 bg-[#07303a]/75 px-3.5 py-2.5 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.55)] backdrop-blur-md motion-safe:animate-[float_6s_ease-in-out_infinite]">
-              <span className="grid h-8.5 w-8.5 place-items-center rounded-xl bg-lime text-navy">
-                <Feather className="h-4 w-4" strokeWidth={2.2} />
+            <div className="absolute -left-1 sm:-left-5 top-[5%] flex items-center gap-3 rounded-2xl border border-white/30 bg-[#07303a]/75 px-4 py-3 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.55)] backdrop-blur-md motion-safe:animate-[float_6s_ease-in-out_infinite]">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-lime text-navy">
+                <Feather className="h-[18px] w-[18px]" strokeWidth={2.2} />
               </span>
-              <span className="text-[12.5px] leading-tight">
+              <span className="text-[13px] leading-tight">
                 <span className="block text-white/65">Comfort</span>
                 <span className="block font-display font-bold">{t.facts.comfort}</span>
               </span>
             </div>
 
-            <div className="absolute -right-1 sm:-right-4 top-[48%] flex items-center gap-2.5 rounded-2xl border border-white/30 bg-[#07303a]/75 px-3.5 py-2.5 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.55)] backdrop-blur-md motion-safe:animate-[float_7s_ease-in-out_-2.5s_infinite]">
-              <span className="grid h-8.5 w-8.5 place-items-center rounded-xl bg-white text-teal-deep">
-                <Timer className="h-4 w-4" strokeWidth={2.2} />
+            <div className="absolute -right-1 sm:-right-5 top-[48%] flex items-center gap-3 rounded-2xl border border-white/30 bg-[#07303a]/75 px-4 py-3 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.55)] backdrop-blur-md motion-safe:animate-[float_7s_ease-in-out_-2.5s_infinite]">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-white text-teal-deep">
+                <Timer className="h-[18px] w-[18px]" strokeWidth={2.2} />
               </span>
-              <span className="text-[12.5px] leading-tight">
+              <span className="text-[13px] leading-tight">
                 <span className="block text-white/65">Typically</span>
                 <span className="block font-display font-bold">{t.facts.duration}</span>
               </span>
             </div>
 
-            <div className="absolute left-[2%] sm:left-[0%] bottom-[2%] flex items-center gap-2.5 rounded-2xl border border-white/30 bg-[#07303a]/75 px-3.5 py-2.5 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.55)] backdrop-blur-md motion-safe:animate-[float_8s_ease-in-out_-4.5s_infinite]">
-              <span className="grid h-8.5 w-8.5 place-items-center rounded-xl bg-[#d8f952] text-navy">
-                <BadgeCheck className="h-4 w-4" strokeWidth={2.2} />
+            <div className="absolute left-[2%] sm:left-[0%] bottom-[2%] flex items-center gap-3 rounded-2xl border border-white/30 bg-[#07303a]/75 px-4 py-3 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.55)] backdrop-blur-md motion-safe:animate-[float_8s_ease-in-out_-4.5s_infinite]">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#d8f952] text-navy">
+                <BadgeCheck className="h-[18px] w-[18px]" strokeWidth={2.2} />
               </span>
-              <span className="text-[12.5px] leading-tight">
+              <span className="text-[13px] leading-tight">
                 <span className="block text-white/65">Led by</span>
                 <span className="block font-display font-bold">Dr. Sneha, BDS</span>
               </span>
@@ -305,7 +293,7 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
         </Container>
       </div>
 
-      {/* ---------------- Clinic Info Strip (Centered between the two sections) ---------------- */}
+      {/* ---------------- Clinic Info Strip (Shifted down to the bottom) ---------------- */}
       <ClinicInfoStrip />
     </section>
   );
