@@ -17,8 +17,8 @@ import { Breadcrumbs, Container } from "./ui";
 
 function ClinicInfoStrip() {
   return (
-    <Container className="relative z-10 -mt-[48px] sm:-mt-[50px] lg:-mt-[52px]">
-      <div className="rounded-[28px] bg-white/95 p-3 shadow-float ring-1 ring-white/80 backdrop-blur lg:p-0">
+    <Container className="relative z-10">
+      <div className="rounded-[28px] border border-[#d9ebef] bg-white p-3 shadow-card ring-1 ring-black/[0.04] lg:p-0">
         <div className="grid grid-cols-1 md:grid-cols-3">
           {/* Item 1: Clinic Address - Fully navigational with hover feedback */}
           <a
@@ -216,7 +216,7 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
           className="pointer-events-none absolute inset-0 -z-10 opacity-[0.22] [background-image:radial-gradient(#fff_1px,transparent_1.2px)] [background-size:26px_26px] [mask-image:linear-gradient(100deg,#000_0%,transparent_62%)]"
         />
 
-        <Container className="grid items-center gap-8 pt-4 pb-16 sm:pt-6 sm:pb-20 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8 lg:pt-8 lg:pb-24">
+        <Container className="grid items-center gap-8 py-8 sm:py-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10 lg:py-12">
           {/* copy */}
           <div>
             <Breadcrumbs
@@ -330,8 +330,10 @@ export default function TreatmentHero({ t }: { t: Treatment }) {
         </Container>
       </div>
 
-      {/* ---------------- Clinic Info Strip (Shifted down to the bottom) ---------------- */}
-      <ClinicInfoStrip />
+      {/* ---------------- Clinic Info Strip (Displayed when scrolling downwards) ---------------- */}
+      <div className="relative z-10 bg-gradient-to-b from-[#f0fafb] via-[#f7fcfd] to-white pt-7 pb-4 sm:pt-9 sm:pb-6 border-b border-[#e2eef1]">
+        <ClinicInfoStrip />
+      </div>
     </section>
   );
 }
